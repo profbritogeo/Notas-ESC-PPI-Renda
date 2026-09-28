@@ -15,15 +15,20 @@
     .sort-btn:active { transform: translateY(0); }
     .row-animate { animation: fadeIn 0.3s ease forwards; opacity: 0; }
     @keyframes fadeIn { to { opacity: 1; } }
-    table tbody tr { transition: background-color 0.15s ease; }
-    .badge { display: inline-block; padding: 2px 10px; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; }
+    @media (prefers-reduced-motion: reduce) {
+      .row-animate { animation: none; opacity: 1; }
+      .sort-btn { transition: none; }
+    }
+    .item { transition: background-color 0.15s ease; }
+    .badge { display: inline-block; padding: 2px 10px; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; white-space: nowrap; }
+    .tag { display: inline-flex; align-items: center; gap: 4px; padding: 1px 8px; border-radius: 9999px; font-size: 0.6875rem; font-weight: 500; line-height: 1.25rem; white-space: nowrap; }
   </style>
   <style>body { box-sizing: border-box; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
  <body class="h-full">
   <div id="app" class="w-full h-full bg-slate-50 overflow-auto">
-   <div class="max-w-5xl mx-auto px-4 py-8 sm:py-12">
+   <div class="max-w-3xl mx-auto px-4 py-8 sm:py-12">
     <!-- Header -->
     <div class="text-center mb-8">
      <div class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-4">
@@ -35,22 +40,13 @@
     <div class="flex justify-center mb-6">
      <button id="sortBtn" onclick="toggleSort()" class="sort-btn inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-emerald-200"> <i data-lucide="arrow-down-up" style="width:18px;height:18px;"></i> <span id="sortLabel">Ordenar Notas</span> </button>
     </div><!-- Sort indicator -->
-    <div id="sortIndicator" class="text-center text-sm text-slate-400 mb-4 h-5"></div><!-- Table -->
+    <div id="sortIndicator" class="text-center text-sm text-slate-400 mb-4 h-5" aria-live="polite"></div><!-- List -->
     <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-     <div class="overflow-x-auto">
-      <table class="w-full text-sm">
-       <thead>
-        <tr class="bg-slate-800 text-white text-left">
-         <th class="px-4 py-3 font-semibold">#</th>
-         <th class="px-4 py-3 font-semibold">Campus</th>
-         <th class="px-4 py-3 font-semibold">Curso</th>
-         <th class="px-4 py-3 font-semibold">Turno</th>
-         <th class="px-4 py-3 font-semibold text-right">Nota de Corte</th>
-        </tr>
-       </thead>
-       <tbody id="tableBody"></tbody>
-      </table>
+     <div class="flex items-center justify-between gap-3 bg-slate-800 text-white text-sm font-semibold px-4 py-3">
+      <span>Curso</span>
+      <span>Nota de Corte</span>
      </div>
+     <ul id="tableBody" class="divide-y divide-slate-100"></ul>
     </div>
     <p class="text-center text-xs text-slate-400 mt-6">Dados do SISU 2025 — PPI, Escola Pública e Baixa Renda</p>
    </div>
@@ -167,25 +163,40 @@
     return { bg: 'bg-red-50', text: 'text-red-700', border: 'border-red-200' };
   }
 
+  function getTurnoStyle(turno) {
+    return turno === 'Noturno'
+      ? { cls: 'bg-indigo-50 text-indigo-700', icon: 'moon' }
+      : { cls: 'bg-amber-50 text-amber-700', icon: 'sun' };
+  }
+
   function renderTable(data) {
-    const tbody = document.getElementById('tableBody');
-    tbody.innerHTML = '';
+    const list = document.getElementById('tableBody');
+    list.innerHTML = '';
     data.forEach((item, i) => {
       const c = getNotaColor(item.nota);
-      const tr = document.createElement('tr');
-      tr.className = `row-animate border-b border-slate-100 hover:bg-slate-50 ${i % 2 === 0 ? '' : 'bg-slate-50/40'}`;
-      tr.style.animationDelay = `${i * 0.02}s`;
-      tr.innerHTML = `
-        <td class="px-4 py-3 text-slate-400 font-mono text-xs">${i + 1}</td>
-        <td class="px-4 py-3 font-semibold text-slate-800">${item.campus}</td>
-        <td class="px-4 py-3 font-semibold text-slate-800">${item.curso}</td>
-        <td class="px-4 py-3 text-slate-500">${item.turno}</td>
-        <td class="px-4 py-3 text-right">
+      const t = getTurnoStyle(item.turno);
+      const li = document.createElement('li');
+      li.className = `item row-animate flex items-start justify-between gap-3 px-4 py-3 hover:bg-slate-50 ${i % 2 === 0 ? '' : 'bg-slate-50/40'}`;
+      li.style.animationDelay = `${Math.min(i, 30) * 0.02}s`;
+      li.innerHTML = `
+        <div class="min-w-0 flex-1">
+          <div class="font-semibold text-slate-800 leading-snug break-words">${item.curso}</div>
+          <div class="flex flex-wrap items-center gap-1.5 mt-1.5">
+            <span class="tag bg-slate-100 text-slate-600">
+              <i data-lucide="map-pin" style="width:11px;height:11px;"></i>${item.campus}
+            </span>
+            <span class="tag ${t.cls}">
+              <i data-lucide="${t.icon}" style="width:11px;height:11px;"></i>${item.turno}
+            </span>
+          </div>
+        </div>
+        <div class="shrink-0 pt-0.5">
           <span class="badge ${c.bg} ${c.text} border ${c.border}">${item.nota.toFixed(3)}</span>
-        </td>
+        </div>
       `;
-      tbody.appendChild(tr);
+      list.appendChild(li);
     });
+    if (window.lucide) lucide.createIcons();
   }
 
   function toggleSort() {
@@ -259,5 +270,5 @@
 
   lucide.createIcons();
 </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9efe1740205b3fc4',t:'MTc3Njc5MjM1Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ </body>
 </html>
