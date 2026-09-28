@@ -1,278 +1,301 @@
 <!doctype html>
-<html lang="pt-BR" class="h-full">
- <head>
+<html lang="pt-BR">
+ <head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260928-05-9348092","C":{"Abril Fatface":"YACgEZbkUVE,0","Alfa Slab One":"YACgEYS9sJU,0","Anton":"YACgEcYqQ-A,0","Archivo":"YACgEZulLoA,0","Arial Narrow":"YAGyDvJ_4Ts,0","Arial Rounded MT Bold":"YAFcfoaHu-s,0","Arial":"YAGyDvJ_4Ts,0","Avenir Next":"YAFcfmNq6UY,0","Baloo 2":"YADK30bC6HQ,0","Bebas Neue":"YACgESME5ew,0","Bricolage Grotesque":"YAFyMcdwzpc,0","Broken Glyph":"YADZ-exUkv0,0","Canva Sans":"YAFdJjTk5UU,1","Caveat":"YALBs2ploWQ,0","Comic Sans MS":"YAFcfvtOAUY,1","Cormorant Garamond":"YAFdJhX-538,0","Courier New":"YAGzXiGs0_8,0","Courier Prime":"YAD1aFjegN8,0","DM Sans":"YAD1aU3sLnI,0","DM Serif Display":"YAD1aYG82rc,0","Forum":"YACgEcnnqB4,0","Fraunces":"YAFdJpU7Kkk,0","Georgia":"YAGzXkO0pEM,0","Ghost Mono":"YAHQutsX00Q,0","Hanken Grotesk":"YAFcfhwp99E,0","Helvetica Neue":"YAFcf6CtJfI,0","Helvetica":"YAFcf6CtJfI,0","IBM Plex Mono":"YAFdJkmvhGI,0","Impact":"YAFcfnjI7Vk,0","Instrument Serif":"YAHFeOnZNEk,0","Inter":"YAFdJvSyp_k,3","Iowan Old Style":"YAGNIFa8j9o,0","Jacques Francois":"YADK3zbC6RM,0","JetBrains Mono":"YAFdJksXcAk,0","Josefin Sans":"YAFdJjvw9Ps,0","Lato":"YAFdJuFCnaw,0","Libre Baskerville":"YACgEUFdPdA,0","Lobster":"YAD8SnSjSFI,0","Lora":"YACgEXvxf8Q,0","Merriweather":"YACgEXvHxxs,0","Montserrat":"YAFdtQi73Xs,0","Nunito":"YAFdJoNRMmU,1","Oleo Script":"YACgEQQ14jI,0","Oswald":"YACgEQY10lw,0","Pacifico":"YADLjORQ1u4,0","Phantom Sans":"YAFdJvgJ5TU,0","Playfair Display":"YAFdJhem5V8,1","Plus Jakarta Sans":"YAGvf3_u0_Q,0","Poppins":"YAFdJjbTu24,1","Press Start 2P":"YAFyGr-8pmQ,0","Quicksand":"YAFdJpYtCxE,1","Raleway":"YAFdJhmxbVQ,1","Roboto Slab":"YAFdJswIKAg,0","Rockwell":"YAFcfyVZnN0,0","Rye":"YACgEdQP21k,0","Segoe UI":"YAHNdRD1Klw,0","Source Sans 3":"YAG4lO1Mj10,0","Source Serif 4":"YACgEfdj394,0","Space Grotesk":"YADZ-dYEmhg,0","Space Mono":"YADW1-vpsoc,0","Times New Roman":"YAGzXW3gftg,0","Times":"YAGzXW3gftg,0","Trebuchet MS":"YAFcfrglpVA,0","UV Display":"YAEdVfSSpYo,0","UV Sans":"YAFdJvgJ5TU,0","Ubuntu":"YACgERDU--Q,0","Verdana":"YAGzXTctYtQ,0","Work Sans":"YAGXhLOKv44,0","Yellowtail":"YACgEYG4kG4,0","ui-monospace":"YAD1aFjegN8,0","ui-sans-serif":"YACkoD1yZN0,0"}}');</script><script src="/_sdk/6542d56fbfe7a3eb.telemetry_sdk.js" integrity="sha512-ECdM0nK7EkwDuOqho2qxgyRQXyBHk9hZqRKMBr+Xsu6zjeHlt+qkO2N2YRiHN7Kg4e1fEHDhjIp4bGJYVypv1g=="></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Notas de Corte - PPI</title>
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-  <script src="/_sdk/element_sdk.js"></script>
+  <title>Notas de Corte PPI</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <style>
-    * { font-family: 'DM Sans', sans-serif; }
-    .sort-btn { transition: all 0.2s ease; }
-    .sort-btn:hover { transform: translateY(-1px); }
+    :root {
+      --ink: #1e293b;
+      --muted: #64748b;
+      --line: #e2e8f0;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "DM Sans", sans-serif;
+      color: var(--ink);
+    }
+
+    .sort-btn {
+      transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+    }
+
+    .sort-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 24px rgba(5, 150, 105, .18);
+    }
+
     .sort-btn:active { transform: translateY(0); }
-    .row-animate { animation: fadeIn 0.3s ease forwards; opacity: 0; }
-    @keyframes fadeIn { to { opacity: 1; } }
-    @media (prefers-reduced-motion: reduce) {
-      .row-animate { animation: none; opacity: 1; }
-      .sort-btn { transition: none; }
+
+    .course-row {
+      animation: rowIn .35s ease both;
     }
-    .item { transition: background-color 0.15s ease; }
-    .badge { display: inline-block; padding: 2px 10px; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; white-space: nowrap; }
-    .tag { display: inline-flex; align-items: center; gap: 4px; padding: 1px 8px; border-radius: 9999px; font-size: 0.6875rem; font-weight: 500; line-height: 1.25rem; white-space: nowrap; }
+
+    @keyframes rowIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .score-pill {
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .campus-pill,
+    .shift-pill {
+      white-space: nowrap;
+    }
+
+    .course-grid-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .course-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+      margin-top: .55rem;
+    }
+
+    @media (max-width: 540px) {
+      .course-grid-row {
+        gap: .75rem;
+      }
+
+      .course-name {
+        font-size: .92rem;
+        line-height: 1.3;
+      }
+
+      .score-pill {
+        font-size: .78rem;
+        padding: .45rem .55rem;
+      }
+
+      .course-meta {
+        gap: .3rem;
+      }
+
+      .campus-pill,
+      .shift-pill {
+        font-size: .67rem;
+      }
+    }
   </style>
-  <style>body { box-sizing: border-box; }</style>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  <script src="/_sdk/6c2ecc939521f244.data_sdk.js" type="text/javascript" integrity="sha512-gRx8s+XsZDN6mSIQu2sivLZysbV0WHhb5kXNUWlgVb5lCMU1foJYukyMEDPv8Tnoocb8iwqB4XdRrWc7oEGzIQ=="></script>
+  <script src="/_sdk/f7f78bb888aedc8b.editing_sdk.js" type="text/javascript" integrity="sha512-FnsIjjHYbuzZnvFce+wovjDrGOUu5OD5gu+V7whPsYYqDCayWnolRQ+eXrxs3zLkGluOVeM57qCWnB82hKGl2Q=="></script>
+  <script src="/_sdk/ddcab3e45959c817.resizing_sdk.js" type="text/javascript" integrity="sha512-VAviUKfZVzugWBSeULYjSljTX+nb84wc6Zzbx5GQaQgh6X2ISSjXi8eIiCDGdwDh10esJMY0+QFQgUy9NcrTlQ=="></script>
  </head>
- <body class="h-full">
-  <div id="app" class="w-full h-full bg-slate-50 overflow-auto">
-   <div class="max-w-3xl mx-auto px-4 py-8 sm:py-12">
-    <!-- Header -->
-    <div class="text-center mb-8">
-     <div class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-4">
-      <i data-lucide="graduation-cap" style="width:16px;height:16px;"></i> PAS
+ <body data-template-id="__page-root">
+  <div class="w-full min-h-screen">
+   <header class="px-4 pt-8 sm:pt-12">
+    <div class="mx-auto max-w-4xl text-center">
+     <div data-template-id="pas-badge" class="canva-tag inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-semibold">
+      <i data-lucide="graduation-cap" aria-hidden="true" style="width:16px;height:16px;"></i> <span data-template-id="pas-badge-text" class="canva-text"></span>
      </div>
-     <h1 id="main-title" class="text-2xl sm:text-3xl font-bold text-slate-800 leading-tight">Notas de Corte para PPI, Escola Pública e Baixa Renda</h1>
-     <p class="text-slate-500 mt-2 text-sm">Clique no botão abaixo para ordenar as notas</p>
-    </div><!-- Sort Button -->
-    <div class="flex justify-center mb-6">
-     <button id="sortBtn" onclick="toggleSort()" class="sort-btn inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-emerald-200"> <i data-lucide="arrow-down-up" style="width:18px;height:18px;"></i> <span id="sortLabel">Ordenar Notas</span> </button>
-    </div><!-- Sort indicator -->
-    <div id="sortIndicator" class="text-center text-sm text-slate-400 mb-4 h-5" aria-live="polite"></div><!-- List -->
-    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-     <div class="flex items-center justify-between gap-3 bg-slate-800 text-white text-sm font-semibold px-4 py-3">
-      <span class="flex items-center gap-3">
-       <span class="w-7 text-right">#</span>
-       <span>Curso</span>
-      </span>
-      <span>Nota de Corte</span>
-     </div>
-     <ul id="tableBody" class="divide-y divide-slate-100"></ul>
+     <h1 data-template-id="main-title" class="canva-text mt-4 font-bold leading-tight"></h1>
+     <p data-template-id="main-subtitle" class="canva-text mt-2 text-sm sm:text-base"></p>
     </div>
-    <p class="text-center text-xs text-slate-400 mt-6">Dados do SISU 2025 — PPI, Escola Pública e Baixa Renda</p>
-   </div>
+   </header>
+   <main class="w-full px-4 pb-10 pt-7 sm:pb-14">
+    <section aria-label="Consulta de notas de corte" class="mx-auto max-w-4xl">
+     <div class="mb-5 flex justify-center">
+      <button id="sortBtn" data-template-id="sort-button" class="canva-button sort-btn inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold shadow-lg focus:outline-none focus:ring-4 focus:ring-emerald-200" type="button"> <i data-lucide="arrow-down-up" aria-hidden="true" style="width:18px;height:18px;"></i> <span data-template-id="sort-button-text" class="canva-text"></span> </button>
+     </div>
+     <p id="sortIndicator" class="mb-4 min-h-5 text-center text-sm text-slate-400" aria-live="polite"></p>
+     <section data-template-id="results-panel" class="canva-panel overflow-hidden rounded-2xl border shadow-sm">
+      <div data-template-id="results-header" class="canva-header course-grid-row border-b px-4 py-3 sm:px-5">
+       <span data-template-id="course-column-label" class="canva-text text-xs font-bold uppercase tracking-wider"></span> <span data-template-id="score-column-label" class="canva-text text-right text-xs font-bold uppercase tracking-wider"></span>
+      </div>
+      <div id="courseList" role="list" aria-label="Cursos e notas de corte"></div>
+     </section>
+     <p data-template-id="footer-note" class="canva-text mt-6 text-center text-xs"></p>
+    </section>
+   </main>
   </div>
+  <template id="course-row-template">
+   <article class="course-row course-grid-row border-b border-slate-100 px-4 py-4 last:border-b-0 sm:px-5" role="listitem">
+    <div class="min-w-0">
+     <div class="flex items-start gap-3">
+      <span class="course-number mt-0.5 min-w-6 text-right text-sm font-bold text-slate-400"></span>
+      <h2 class="course-name min-w-0 font-semibold text-slate-800"></h2>
+     </div>
+     <div class="course-meta">
+      <span class="campus-pill inline-flex items-center gap-1 rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-600"> <i data-lucide="map-pin" aria-hidden="true" style="width:12px;height:12px;"></i> <span class="campus-value"></span> </span> <span class="shift-pill inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-500"> <i data-lucide="clock-3" aria-hidden="true" style="width:12px;height:12px;"></i> <span class="shift-value"></span> </span>
+     </div>
+    </div><span class="score-pill inline-flex rounded-lg border px-3 py-2 text-sm font-bold"></span>
+   </article>
+  </template>
   <script>
-  // ========== DADOS DA PLANILHA ==========
-  const dados = [
-    { campus: "Ceilândia", curso: "Enfermagem (Bacharelado)", turno: "Diurno", nota: -59.607 },
-    { campus: "Ceilândia", curso: "Farmácia (Bacharelado)", turno: "Diurno", nota: -72.650 },
-    { campus: "Ceilândia", curso: "Fisioterapia (Bacharelado)", turno: "Diurno", nota: -68.139 },
-    { campus: "Ceilândia", curso: "Fonoaudiologia (Bacharelado)", turno: "Diurno", nota: -67.373 },
-    { campus: "Ceilândia", curso: "Saúde Coletiva (Bacharelado)", turno: "Diurno", nota: -100.001 },
-    { campus: "Ceilândia", curso: "Terapia Ocupacional (Bacharelado)", turno: "Diurno", nota: -93.459 },
-    { campus: "Darcy Ribeiro", curso: "Administração (Bacharelado)", turno: "Diurno", nota: -68.353 },
-    { campus: "Darcy Ribeiro", curso: "Administração (Bacharelado)", turno: "Noturno", nota: -75.047 },
-    { campus: "Darcy Ribeiro", curso: "Agronomia (Bacharelado)", turno: "Diurno", nota: -90.876 },
-    { campus: "Darcy Ribeiro", curso: "Arquitetura e Urbanismo (Bacharelado)", turno: "Diurno", nota: -14.532 },
-    { campus: "Darcy Ribeiro", curso: "Arquitetura e Urbanismo (Bacharelado)", turno: "Noturno", nota: -41.913 },
-    { campus: "Darcy Ribeiro", curso: "Arquivologia (Bacharelado)", turno: "Noturno", nota: -100.001 },
-    { campus: "Darcy Ribeiro", curso: "Artes Cênicas - Interpretação Teatral (Bacharelado)", turno: "Diurno", nota: -42.195 },
-    { campus: "Darcy Ribeiro", curso: "Artes Cênicas (Licenciatura)", turno: "Diurno", nota: -100.001 },
-    { campus: "Darcy Ribeiro", curso: "Artes Visuais (Bacharelado)", turno: "Diurno", nota: -49.417 },
-    { campus: "Darcy Ribeiro", curso: "Artes Visuais (Licenciatura)", turno: "Diurno", nota: -79.788 },
-    { campus: "Darcy Ribeiro", curso: "Artes Visuais (Licenciatura)", turno: "Noturno", nota: -100.001 },
-    { campus: "Darcy Ribeiro", curso: "Biblioteconomia (Bacharelado)", turno: "Diurno", nota: -91.347 },
-    { campus: "Darcy Ribeiro", curso: "Biotecnologia (Bacharelado)", turno: "Diurno", nota: -59.763 },
-    { campus: "Darcy Ribeiro", curso: "Ciência da Computação (Bacharelado)", turno: "Diurno", nota: -13.007 },
-    { campus: "Darcy Ribeiro", curso: "Ciência Política (Bacharelado)", turno: "Diurno", nota: -16.113 },
-    { campus: "Darcy Ribeiro", curso: "Ciências Ambientais (Bacharelado)", turno: "Noturno", nota: -100.001 },
-    { campus: "Darcy Ribeiro", curso: "Ciências Biológicas (Bacharelado)", turno: "Diurno", nota: -65.185 },
-    { campus: "Darcy Ribeiro", curso: "Ciências Biológicas (Licenciatura)", turno: "Noturno", nota: -67.136 },
-    { campus: "Darcy Ribeiro", curso: "Ciências Contábeis (Bacharelado)", turno: "Diurno", nota: -81.059 },
-    { campus: "Darcy Ribeiro", curso: "Ciências Contábeis (Bacharelado)", turno: "Noturno", nota: -100.001 },
-    { campus: "Darcy Ribeiro", curso: "Ciências Econômicas (Bacharelado)", turno: "Diurno", nota: -50.906 },
-    { campus: "Darcy Ribeiro", curso: "Ciências Sociais – Antropologia / Sociologia (Bacharelado/Licenciatura)", turno: "Diurno", nota: -82.652 },
-    { campus: "Darcy Ribeiro", curso: "Computação (Licenciatura)", turno: "Noturno", nota: -77.916 },
-    { campus: "Darcy Ribeiro", curso: "Comunicação Organizacional (Bacharelado)", turno: "Noturno", nota: -77.546 },
-    { campus: "Darcy Ribeiro", curso: "Comunicação Social – Audiovisual (Bacharelado)", turno: "Diurno", nota: -38.078 },
-    { campus: "Darcy Ribeiro", curso: "Comunicação Social - Publicidade e Propaganda (Bacharelado)", turno: "Diurno", nota: -60.267 },
-    { campus: "Darcy Ribeiro", curso: "Design – Programação Visual / Projeto do Produto (Bacharelado)", turno: "Diurno", nota: -57.783 },
-    { campus: "Darcy Ribeiro", curso: "Direito (Bacharelado)", turno: "Diurno", nota: -3.076 },
-    { campus: "Darcy Ribeiro", curso: "Direito (Bacharelado)", turno: "Noturno", nota: -32.512 },
-    { campus: "Darcy Ribeiro", curso: "Educação Física Ciclo Básico", turno: "Noturno", nota: -72.598 },
-    { campus: "Darcy Ribeiro", curso: "Enfermagem (Bacharelado)", turno: "Diurno", nota: -48.540 },
-    { campus: "Darcy Ribeiro", curso: "Engenharia Ambiental (Bacharelado)", turno: "Diurno", nota: -79.036 },
-    { campus: "Darcy Ribeiro", curso: "Engenharia Civil (Bacharelado)", turno: "Diurno", nota: -8.302 },
-    { campus: "Darcy Ribeiro", curso: "Engenharia de Computação (Bacharelado)", turno: "Diurno", nota: -27.010 },
-    { campus: "Darcy Ribeiro", curso: "Engenharia de Produção (Bacharelado)", turno: "Noturno", nota: -73.081 },
-    { campus: "Darcy Ribeiro", curso: "Engenharia de Redes de Comunicação (Bacharelado)", turno: "Diurno", nota: -58.341 },
-    { campus: "Darcy Ribeiro", curso: "Engenharia Elétrica (Bacharelado)", turno: "Diurno", nota: -37.128 },
-    { campus: "Darcy Ribeiro", curso: "Engenharia Florestal (Bacharelado)", turno: "Diurno", nota: -100.001 },
-    { campus: "Darcy Ribeiro", curso: "Engenharia Mecânica (Bacharelado)", turno: "Diurno", nota: -58.112 },
-    { campus: "Darcy Ribeiro", curso: "Engenharia Mecatrônica – Controle e Automação (Bacharelado)", turno: "Diurno", nota: -52.980 },
-    { campus: "Darcy Ribeiro", curso: "Engenharia Química (Bacharelado)", turno: "Diurno", nota: -43.753 },
-    { campus: "Darcy Ribeiro", curso: "Estatística (Bacharelado)", turno: "Diurno", nota: -65.316 },
-    { campus: "Darcy Ribeiro", curso: "Farmácia (Bacharelado)", turno: "Diurno", nota: -41.051 },
-    { campus: "Darcy Ribeiro", curso: "Farmácia (Bacharelado)", turno: "Noturno", nota: -55.538 },
-    { campus: "Darcy Ribeiro", curso: "Filosofia (Bacharelado/Licenciatura)", turno: "Diurno", nota: -84.094 },
-    { campus: "Darcy Ribeiro", curso: "Filosofia (Licenciatura)", turno: "Noturno", nota: -100.001 },
-    { campus: "Darcy Ribeiro", curso: "Física (Bacharelado)", turno: "Diurno", nota: -78.706 },
-    { campus: "Darcy Ribeiro", curso: "Física (Licenciatura)", turno: "Noturno", nota: -100.001 },
-    { campus: "Darcy Ribeiro", curso: "Geofísica (Bacharelado)", turno: "Diurno", nota: -100.001 },
-    { campus: "Darcy Ribeiro", curso: "Geografia (Bacharelado/Licenciatura)", turno: "Diurno", nota: -76.746 },
-    { campus: "Darcy Ribeiro", curso: "Geologia (Bacharelado)", turno: "Diurno", nota: -78.382 },
-    { campus: "Darcy Ribeiro", curso: "Gestão de Agronegócio (Bacharelado)", turno: "Noturno", nota: -100.001 },
-    { campus: "Darcy Ribeiro", curso: "Gestão de Políticas Públicas (Bacharelado)", turno: "Noturno", nota: -82.186 },
-    { campus: "Darcy Ribeiro", curso: "História (Bacharelado/Licenciatura)", turno: "Diurno", nota: -48.046 },
-    { campus: "Darcy Ribeiro", curso: "História (Licenciatura)", turno: "Noturno", nota: -100.001 },
-    { campus: "Darcy Ribeiro", curso: "Jornalismo (Bacharelado)", turno: "Diurno", nota: -24.747 },
-    { campus: "Darcy Ribeiro", curso: "Letras – Português do Brasil como Segunda Língua (Licenciatura)", turno: "Diurno", nota: -100.001 },
-    { campus: "Darcy Ribeiro", curso: "Letras – Tradução – Francês (Bacharelado)", turno: "Diurno", nota: -100.001 },
-    { campus: "Darcy Ribeiro", curso: "Letras – Tradução – Inglês (Bacharelado)", turno: "Diurno", nota: -51.275 },
-    { campus: "Darcy Ribeiro", curso: "Letras – Tradução Espanhol (Bacharelado)", turno: "Noturno", nota: -100.001 },
-    { campus: "Darcy Ribeiro", curso: "Língua e Literatura Japonesa (Licenciatura)", turno: "Noturno", nota: -100.001 },
-    { campus: "Darcy Ribeiro", curso: "Língua Espanhola e Literatura Espanhola e Hispano-Americana (Licenciatura)", turno: "Noturno", nota: -100.001 },
-    { campus: "Darcy Ribeiro", curso: "Língua Estrangeira Aplicada – Multilinguismo e Sociedade da Informação (Bacharelado)", turno: "Diurno", nota: -100.001 },
-    { campus: "Darcy Ribeiro", curso: "Língua Francesa e Respectiva Literatura (Bacharelado/Licenciatura)", turno: "Diurno", nota: -100.001 },
-    { campus: "Darcy Ribeiro", curso: "Língua Inglesa e Respectiva Literatura (Bacharelado/Licenciatura)", turno: "Diurno", nota: -59.347 },
-    { campus: "Darcy Ribeiro", curso: "Língua Portuguesa e Respectiva Literatura (Bacharelado/Licenciatura)", turno: "Diurno", nota: -42.232 },
-    { campus: "Darcy Ribeiro", curso: "Língua Portuguesa e Respectiva Literatura (Licenciatura)", turno: "Noturno", nota: -100.001 },
-    { campus: "Darcy Ribeiro", curso: "Matemática (Bacharelado/Licenciatura)", turno: "Diurno", nota: -58.450 },
-    { campus: "Darcy Ribeiro", curso: "Matemática (Licenciatura)", turno: "Noturno", nota: -100.001 },
-    { campus: "Darcy Ribeiro", curso: "Medicina (Bacharelado)", turno: "Diurno", nota: 49.875 },
-    { campus: "Darcy Ribeiro", curso: "Medicina Veterinária (Bacharelado)", turno: "Diurno", nota: -48.187 },
-    { campus: "Darcy Ribeiro", curso: "Museologia (Bacharelado)", turno: "Diurno", nota: -100.001 },
-    { campus: "Darcy Ribeiro", curso: "Música (Bacharelado)", turno: "Diurno", nota: -100.001 },
-    { campus: "Darcy Ribeiro", curso: "Música (Licenciatura)", turno: "Diurno", nota: -84.971 },
-    { campus: "Darcy Ribeiro", curso: "Música (Licenciatura)", turno: "Noturno", nota: -100.001 },
-    { campus: "Darcy Ribeiro", curso: "Nutrição (Bacharelado)", turno: "Diurno", nota: -48.820 },
-    { campus: "Darcy Ribeiro", curso: "Odontologia (Bacharelado)", turno: "Diurno", nota: -35.781 },
-    { campus: "Darcy Ribeiro", curso: "Pedagogia (Licenciatura)", turno: "Diurno", nota: -82.209 },
-    { campus: "Darcy Ribeiro", curso: "Pedagogia (Licenciatura)", turno: "Noturno", nota: -98.052 },
-    { campus: "Darcy Ribeiro", curso: "Psicologia (Bacharelado / Licenciatura / Psicólogo)", turno: "Diurno", nota: -26.348 },
-    { campus: "Darcy Ribeiro", curso: "Química (Bacharelado)", turno: "Diurno", nota: -67.093 },
-    { campus: "Darcy Ribeiro", curso: "Química (Licenciatura)", turno: "Noturno", nota: -100.001 },
-    { campus: "Darcy Ribeiro", curso: "Química Tecnológica (Bacharelado)", turno: "Diurno", nota: -100.001 },
-    { campus: "Darcy Ribeiro", curso: "Relações Internacionais (Bacharelado)", turno: "Diurno", nota: -27.409 },
-    { campus: "Darcy Ribeiro", curso: "Saúde Coletiva (Bacharelado)", turno: "Noturno", nota: -100.001 },
-    { campus: "Darcy Ribeiro", curso: "Serviço Social (Bacharelado)", turno: "Diurno", nota: -80.746 },
-    { campus: "Darcy Ribeiro", curso: "Serviço Social (Bacharelado)", turno: "Noturno", nota: -100.001 },
-    { campus: "Darcy Ribeiro", curso: "Teoria, Crítica e História da Arte (Bacharelado)", turno: "Noturno", nota: -100.001 },
-    { campus: "Darcy Ribeiro", curso: "Turismo (Bacharelado)", turno: "Diurno", nota: -100.001 },
-    { campus: "Gama", curso: "Engenharias – Aeroespacial / Automotiva / Eletrônica / Energia / Software (Bacharelados)", turno: "Diurno", nota: -69.206 },
-    { campus: "Planaltina", curso: "Ciências Naturais (Licenciatura)", turno: "Diurno", nota: -100.001 },
-    { campus: "Planaltina", curso: "Ciências Naturais (Licenciatura)", turno: "Noturno", nota: -100.001 },
-    { campus: "Planaltina", curso: "Gestão Ambiental (Bacharelado)", turno: "Diurno", nota: -100.001 },
-    { campus: "Planaltina", curso: "Gestão do Agronegócio (Bacharelado)", turno: "Diurno", nota: -100.001 },
-  ];
+    const dados = [
+      ["Ceilândia","Enfermagem (Bacharelado)","Diurno",-59.607],
+      ["Ceilândia","Farmácia (Bacharelado)","Diurno",-72.650],
+      ["Ceilândia","Fisioterapia (Bacharelado)","Diurno",-68.139],
+      ["Ceilândia","Fonoaudiologia (Bacharelado)","Diurno",-67.373],
+      ["Ceilândia","Saúde Coletiva (Bacharelado)","Diurno",-100.001],
+      ["Ceilândia","Terapia Ocupacional (Bacharelado)","Diurno",-93.459],
+      ["Darcy Ribeiro","Administração (Bacharelado)","Diurno",-68.353],
+      ["Darcy Ribeiro","Administração (Bacharelado)","Noturno",-75.047],
+      ["Darcy Ribeiro","Agronomia (Bacharelado)","Diurno",-90.876],
+      ["Darcy Ribeiro","Arquitetura e Urbanismo (Bacharelado)","Diurno",-14.532],
+      ["Darcy Ribeiro","Arquitetura e Urbanismo (Bacharelado)","Noturno",-41.913],
+      ["Darcy Ribeiro","Arquivologia (Bacharelado)","Noturno",-100.001],
+      ["Darcy Ribeiro","Artes Cênicas - Interpretação Teatral (Bacharelado)","Diurno",-42.195],
+      ["Darcy Ribeiro","Artes Cênicas (Licenciatura)","Diurno",-100.001],
+      ["Darcy Ribeiro","Artes Visuais (Bacharelado)","Diurno",-49.417],
+      ["Darcy Ribeiro","Artes Visuais (Licenciatura)","Diurno",-79.788],
+      ["Darcy Ribeiro","Artes Visuais (Licenciatura)","Noturno",-100.001],
+      ["Darcy Ribeiro","Biblioteconomia (Bacharelado)","Diurno",-91.347],
+      ["Darcy Ribeiro","Biotecnologia (Bacharelado)","Diurno",-59.763],
+      ["Darcy Ribeiro","Ciência da Computação (Bacharelado)","Diurno",-13.007],
+      ["Darcy Ribeiro","Ciência Política (Bacharelado)","Diurno",-16.113],
+      ["Darcy Ribeiro","Ciências Ambientais (Bacharelado)","Noturno",-100.001],
+      ["Darcy Ribeiro","Ciências Biológicas (Bacharelado)","Diurno",-65.185],
+      ["Darcy Ribeiro","Ciências Biológicas (Licenciatura)","Noturno",-67.136],
+      ["Darcy Ribeiro","Ciências Contábeis (Bacharelado)","Diurno",-81.059],
+      ["Darcy Ribeiro","Ciências Contábeis (Bacharelado)","Noturno",-100.001],
+      ["Darcy Ribeiro","Ciências Econômicas (Bacharelado)","Diurno",-50.906],
+      ["Darcy Ribeiro","Ciências Sociais – Antropologia / Sociologia (Bacharelado/Licenciatura)","Diurno",-82.652],
+      ["Darcy Ribeiro","Computação (Licenciatura)","Noturno",-77.916],
+      ["Darcy Ribeiro","Comunicação Organizacional (Bacharelado)","Noturno",-77.546],
+      ["Darcy Ribeiro","Comunicação Social – Audiovisual (Bacharelado)","Diurno",-38.078],
+      ["Darcy Ribeiro","Comunicação Social - Publicidade e Propaganda (Bacharelado)","Diurno",-60.267],
+      ["Darcy Ribeiro","Design – Programação Visual / Projeto do Produto (Bacharelado)","Diurno",-57.783],
+      ["Darcy Ribeiro","Direito (Bacharelado)","Diurno",-3.076],
+      ["Darcy Ribeiro","Direito (Bacharelado)","Noturno",-32.512],
+      ["Darcy Ribeiro","Educação Física Ciclo Básico","Noturno",-72.598],
+      ["Darcy Ribeiro","Enfermagem (Bacharelado)","Diurno",-48.540],
+      ["Darcy Ribeiro","Engenharia Ambiental (Bacharelado)","Diurno",-79.036],
+      ["Darcy Ribeiro","Engenharia Civil (Bacharelado)","Diurno",-8.302],
+      ["Darcy Ribeiro","Engenharia de Computação (Bacharelado)","Diurno",-27.010],
+      ["Darcy Ribeiro","Engenharia de Produção (Bacharelado)","Noturno",-73.081],
+      ["Darcy Ribeiro","Engenharia de Redes de Comunicação (Bacharelado)","Diurno",-58.341],
+      ["Darcy Ribeiro","Engenharia Elétrica (Bacharelado)","Diurno",-37.128],
+      ["Darcy Ribeiro","Engenharia Florestal (Bacharelado)","Diurno",-100.001],
+      ["Darcy Ribeiro","Engenharia Mecânica (Bacharelado)","Diurno",-58.112],
+      ["Darcy Ribeiro","Engenharia Mecatrônica – Controle e Automação (Bacharelado)","Diurno",-52.980],
+      ["Darcy Ribeiro","Engenharia Química (Bacharelado)","Diurno",-43.753],
+      ["Darcy Ribeiro","Estatística (Bacharelado)","Diurno",-65.316],
+      ["Darcy Ribeiro","Farmácia (Bacharelado)","Diurno",-41.051],
+      ["Darcy Ribeiro","Farmácia (Bacharelado)","Noturno",-55.538],
+      ["Darcy Ribeiro","Filosofia (Bacharelado/Licenciatura)","Diurno",-84.094],
+      ["Darcy Ribeiro","Filosofia (Licenciatura)","Noturno",-100.001],
+      ["Darcy Ribeiro","Física (Bacharelado)","Diurno",-78.706],
+      ["Darcy Ribeiro","Física (Licenciatura)","Noturno",-100.001],
+      ["Darcy Ribeiro","Geofísica (Bacharelado)","Diurno",-100.001],
+      ["Darcy Ribeiro","Geografia (Bacharelado/Licenciatura)","Diurno",-76.746],
+      ["Darcy Ribeiro","Geologia (Bacharelado)","Diurno",-78.382],
+      ["Darcy Ribeiro","Gestão de Agronegócio (Bacharelado)","Noturno",-100.001],
+      ["Darcy Ribeiro","Gestão de Políticas Públicas (Bacharelado)","Noturno",-82.186],
+      ["Darcy Ribeiro","História (Bacharelado/Licenciatura)","Diurno",-48.046],
+      ["Darcy Ribeiro","História (Licenciatura)","Noturno",-100.001],
+      ["Darcy Ribeiro","Jornalismo (Bacharelado)","Diurno",-24.747],
+      ["Darcy Ribeiro","Letras – Português do Brasil como Segunda Língua (Licenciatura)","Diurno",-100.001],
+      ["Darcy Ribeiro","Letras – Tradução – Francês (Bacharelado)","Diurno",-100.001],
+      ["Darcy Ribeiro","Letras – Tradução – Inglês (Bacharelado)","Diurno",-51.275],
+      ["Darcy Ribeiro","Letras – Tradução Espanhol (Bacharelado)","Noturno",-100.001],
+      ["Darcy Ribeiro","Língua e Literatura Japonesa (Licenciatura)","Noturno",-100.001],
+      ["Darcy Ribeiro","Língua Espanhola e Literatura Espanhola e Hispano-Americana (Licenciatura)","Noturno",-100.001],
+      ["Darcy Ribeiro","Língua Estrangeira Aplicada – Multilinguismo e Sociedade da Informação (Bacharelado)","Diurno",-100.001],
+      ["Darcy Ribeiro","Língua Francesa e Respectiva Literatura (Bacharelado/Licenciatura)","Diurno",-100.001],
+      ["Darcy Ribeiro","Língua Inglesa e Respectiva Literatura (Bacharelado/Licenciatura)","Diurno",-59.347],
+      ["Darcy Ribeiro","Língua Portuguesa e Respectiva Literatura (Bacharelado/Licenciatura)","Diurno",-42.232],
+      ["Darcy Ribeiro","Língua Portuguesa e Respectiva Literatura (Licenciatura)","Noturno",-100.001],
+      ["Darcy Ribeiro","Matemática (Bacharelado/Licenciatura)","Diurno",-58.450],
+      ["Darcy Ribeiro","Matemática (Licenciatura)","Noturno",-100.001],
+      ["Darcy Ribeiro","Medicina (Bacharelado)","Diurno",49.875],
+      ["Darcy Ribeiro","Medicina Veterinária (Bacharelado)","Diurno",-48.187],
+      ["Darcy Ribeiro","Museologia (Bacharelado)","Diurno",-100.001],
+      ["Darcy Ribeiro","Música (Bacharelado)","Diurno",-100.001],
+      ["Darcy Ribeiro","Música (Licenciatura)","Diurno",-84.971],
+      ["Darcy Ribeiro","Música (Licenciatura)","Noturno",-100.001],
+      ["Darcy Ribeiro","Nutrição (Bacharelado)","Diurno",-48.820],
+      ["Darcy Ribeiro","Odontologia (Bacharelado)","Diurno",-35.781],
+      ["Darcy Ribeiro","Pedagogia (Licenciatura)","Diurno",-82.209],
+      ["Darcy Ribeiro","Pedagogia (Licenciatura)","Noturno",-98.052],
+      ["Darcy Ribeiro","Psicologia (Bacharelado / Licenciatura / Psicólogo)","Diurno",-26.348],
+      ["Darcy Ribeiro","Química (Bacharelado)","Diurno",-67.093],
+      ["Darcy Ribeiro","Química (Licenciatura)","Noturno",-100.001],
+      ["Darcy Ribeiro","Química Tecnológica (Bacharelado)","Diurno",-100.001],
+      ["Darcy Ribeiro","Relações Internacionais (Bacharelado)","Diurno",-27.409],
+      ["Darcy Ribeiro","Saúde Coletiva (Bacharelado)","Noturno",-100.001],
+      ["Darcy Ribeiro","Serviço Social (Bacharelado)","Diurno",-80.746],
+      ["Darcy Ribeiro","Serviço Social (Bacharelado)","Noturno",-100.001],
+      ["Darcy Ribeiro","Teoria, Crítica e História da Arte (Bacharelado)","Noturno",-100.001],
+      ["Darcy Ribeiro","Turismo (Bacharelado)","Diurno",-100.001],
+      ["Gama","Engenharias – Aeroespacial / Automotiva / Eletrônica / Energia / Software (Bacharelados)","Diurno",-69.206],
+      ["Planaltina","Ciências Naturais (Licenciatura)","Diurno",-100.001],
+      ["Planaltina","Ciências Naturais (Licenciatura)","Noturno",-100.001],
+      ["Planaltina","Gestão Ambiental (Bacharelado)","Diurno",-100.001],
+      ["Planaltina","Gestão do Agronegócio (Bacharelado)","Diurno",-100.001]
+    ].map(([campus, curso, turno, nota]) => ({ campus, curso, turno, nota }));
 
-  let sortOrder = null; // null, 'desc', 'asc'
+    let sortOrder = null;
+    const list = document.getElementById("courseList");
+    const template = document.getElementById("course-row-template");
+    const sortIndicator = document.getElementById("sortIndicator");
 
-  function getNotaColor(nota) {
-    if (nota >= 0) return { bg: 'bg-green-50', text: 'text-green-700', border: 'border-green-200' };
-    return { bg: 'bg-red-50', text: 'text-red-700', border: 'border-red-200' };
-  }
-
-  function getTurnoStyle(turno) {
-    return turno === 'Noturno'
-      ? { cls: 'bg-indigo-50 text-indigo-700', icon: 'moon' }
-      : { cls: 'bg-amber-50 text-amber-700', icon: 'sun' };
-  }
-
-  function renderTable(data) {
-    const list = document.getElementById('tableBody');
-    list.innerHTML = '';
-    data.forEach((item, i) => {
-      const c = getNotaColor(item.nota);
-      const t = getTurnoStyle(item.turno);
-      const li = document.createElement('li');
-      li.className = `item row-animate flex items-start justify-between gap-3 px-4 py-3 hover:bg-slate-50 ${i % 2 === 0 ? '' : 'bg-slate-50/40'}`;
-      li.style.animationDelay = `${Math.min(i, 30) * 0.02}s`;
-      li.innerHTML = `
-        <div class="w-7 shrink-0 pt-0.5 text-right text-slate-400 font-mono text-xs">${i + 1}</div>
-        <div class="min-w-0 flex-1">
-          <div class="font-semibold text-slate-800 leading-snug break-words">${item.curso}</div>
-          <div class="flex flex-wrap items-center gap-1.5 mt-1.5">
-            <span class="tag bg-slate-100 text-slate-600">
-              <i data-lucide="map-pin" style="width:11px;height:11px;"></i>${item.campus}
-            </span>
-            <span class="tag ${t.cls}">
-              <i data-lucide="${t.icon}" style="width:11px;height:11px;"></i>${item.turno}
-            </span>
-          </div>
-        </div>
-        <div class="shrink-0 pt-0.5">
-          <span class="badge ${c.bg} ${c.text} border ${c.border}">${item.nota.toFixed(3)}</span>
-        </div>
-      `;
-      list.appendChild(li);
-    });
-    if (window.lucide) lucide.createIcons();
-  }
-
-  function toggleSort() {
-    const indicator = document.getElementById('sortIndicator');
-    let sorted;
-
-    if (sortOrder === null || sortOrder === 'asc') {
-      sortOrder = 'desc';
-      sorted = [...dados].sort((a, b) => b.nota - a.nota);
-      indicator.textContent = '▼ Maior para menor';
-    } else {
-      sortOrder = 'asc';
-      sorted = [...dados].sort((a, b) => a.nota - b.nota);
-      indicator.textContent = '▲ Menor para maior';
+    function notaStyles(nota) {
+      return nota >= 0
+        ? ["bg-emerald-50", "text-emerald-700", "border-emerald-200"]
+        : ["bg-rose-50", "text-rose-700", "border-rose-200"];
     }
 
-    renderTable(sorted);
-  }
+    function renderCourses(records) {
+      list.replaceChildren();
 
-  // Initial render (original order)
-  renderTable(dados);
+      records.forEach((item, index) => {
+        const fragment = template.content.cloneNode(true);
+        const row = fragment.querySelector("article");
+        const [background, color, border] = notaStyles(item.nota);
 
-  // ========== ELEMENT SDK ==========
-  const defaultConfig = {
-    page_title: 'Notas de Corte para PPI, Escola Pública e Baixa Renda',
-    background_color: '#f8fafc',
-    surface_color: '#ffffff',
-    text_color: '#1e293b',
-    primary_action: '#059669',
-    secondary_action: '#334155',
-    font_family: 'DM Sans',
-    font_size: 14
-  };
+        row.style.animationDelay = `${Math.min(index * 0.012, 0.45)}s`;
+        row.querySelector(".course-number").textContent = `${index + 1}.`;
+        row.querySelector(".course-name").textContent = item.curso;
+        row.querySelector(".campus-value").textContent = item.campus;
+        row.querySelector(".shift-value").textContent = item.turno;
 
-  function applyConfig(config) {
-    const title = document.getElementById('main-title');
-    if (title) title.textContent = config.page_title || defaultConfig.page_title;
+        const score = row.querySelector(".score-pill");
+        score.classList.add(background, color, border);
+        score.textContent = item.nota.toFixed(3);
 
-    const app = document.getElementById('app');
-    if (app) app.style.backgroundColor = config.background_color || defaultConfig.background_color;
+        list.appendChild(fragment);
+      });
 
-    const btn = document.getElementById('sortBtn');
-    if (btn) btn.style.backgroundColor = config.primary_action || defaultConfig.primary_action;
+      lucide.createIcons();
+    }
 
-    const font = config.font_family || defaultConfig.font_family;
-    document.body.style.fontFamily = `${font}, sans-serif`;
+    function toggleSort() {
+      let ordered;
 
-    const base = config.font_size || defaultConfig.font_size;
-    if (title) title.style.fontSize = `${base * 1.8}px`;
-  }
+      if (sortOrder === null || sortOrder === "asc") {
+        sortOrder = "desc";
+        ordered = [...dados].sort((a, b) => b.nota - a.nota);
+        sortIndicator.textContent = "▼ Maior nota para menor nota";
+      } else {
+        sortOrder = "asc";
+        ordered = [...dados].sort((a, b) => a.nota - b.nota);
+        sortIndicator.textContent = "▲ Menor nota para maior nota";
+      }
 
-  window.elementSdk.init({
-    defaultConfig,
-    onConfigChange: async (config) => { applyConfig(config); },
-    mapToCapabilities: (config) => ({
-      recolorables: [
-        { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
-        { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
-        { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
-        { get: () => config.primary_action || defaultConfig.primary_action, set: (v) => { config.primary_action = v; window.elementSdk.setConfig({ primary_action: v }); } },
-        { get: () => config.secondary_action || defaultConfig.secondary_action, set: (v) => { config.secondary_action = v; window.elementSdk.setConfig({ secondary_action: v }); } },
-      ],
-      borderables: [],
-      fontEditable: { get: () => config.font_family || defaultConfig.font_family, set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); } },
-      fontSizeable: { get: () => config.font_size || defaultConfig.font_size, set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); } },
-    }),
-    mapToEditPanelValues: (config) => new Map([
-      ['page_title', config.page_title || defaultConfig.page_title],
-    ])
-  });
+      renderCourses(ordered);
+    }
 
-  lucide.createIcons();
-</script>
+    document.getElementById("sortBtn").addEventListener("click", toggleSort);
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderCourses(dados);
+      lucide.createIcons();
+    });
+  </script>
  </body>
 </html>
